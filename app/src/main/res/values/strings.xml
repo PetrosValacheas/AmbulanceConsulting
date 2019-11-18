@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">AmbulanceConsulting</string>
+    <string name="new_here"><u>New here? Sign up...</u></string>
 </resources>
