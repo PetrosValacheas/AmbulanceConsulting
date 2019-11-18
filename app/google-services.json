@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1091294534215",
+    "firebase_url": "https://ambulanceconsulting.firebaseio.com",
+    "project_id": "ambulanceconsulting",
+    "storage_bucket": "ambulanceconsulting.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1091294534215:android:4f93683c6cbe3001516f62",
+        "android_client_info": {
+          "package_name": "com.example.ambulanceconsulting"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1091294534215-diefti24uhgr58ra06jk0h3eg5fmkjaq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ambulanceconsulting",
+            "certificate_hash": "dcf525c1c23e8780f46fb655ed41e593866fd5b6"
+          }
+        },
+        {
+          "client_id": "1091294534215-pvsh3fgdagvr5kjlgg1bs3r73oe464gh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA843aQJtfz9vCNIikx6OwMdlrXNoTR7ow"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1091294534215-pvsh3fgdagvr5kjlgg1bs3r73oe464gh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
