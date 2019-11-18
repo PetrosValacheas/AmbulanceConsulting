@@ -40,11 +40,11 @@
         android:layout_height="30dp"
         android:src="@drawable/ic_uname"/>
         <EditText
-            android:id="@+id/username_edit_text"
+            android:id="@+id/email_edit_text"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:hint="Username"
+            android:hint="Email"
             android:textColorHint="@android:color/black"/>
 
     </LinearLayout>

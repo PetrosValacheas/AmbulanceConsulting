@@ -16,7 +16,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private EditText loginUsername , loginPassword;
+    private EditText loginEmail , loginPassword;
     private Button buttonSignIn;
     private TextView needNewAccount;
 
@@ -41,7 +41,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private void InitializeFields() {
 
-        loginUsername = (EditText) findViewById(R.id.username_edit_text);
+        loginEmail = (EditText) findViewById(R.id.email_edit_text);
         loginPassword = (EditText) findViewById(R.id.password_edit_text);
         buttonSignIn = (Button)   findViewById(R.id.button_sign_in);
         needNewAccount = (TextView) findViewById(R.id.sign_up_text_view);
