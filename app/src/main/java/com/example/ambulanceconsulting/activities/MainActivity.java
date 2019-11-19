@@ -3,7 +3,10 @@ package com.example.ambulanceconsulting.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -46,5 +49,29 @@ public class MainActivity extends AppCompatActivity {
 
         Intent loginIntent = new Intent( MainActivity.this, LoginActivity.class);
         startActivity(loginIntent);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+         super.onCreateOptionsMenu(menu);
+
+         getMenuInflater().inflate(R.menu.options_menu,menu);
+         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+         super.onOptionsItemSelected(item);
+
+
+         if(item.getItemId() == R.id.main_logout_option){
+
+             mAuth.signOut();
+             sendUsertoLoginActivity();
+         }
+        if(item.getItemId() == R.id.main_settings_option){
+
+        }
+       return true;
     }
 }
