@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,6 +18,8 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
 
+    private Button hospitals;
+
     private FirebaseUser currentUser;
     private FirebaseAuth mAuth;
 
@@ -26,10 +30,31 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-
         mAuth = FirebaseAuth.getInstance();
         currentUser = mAuth.getCurrentUser();
 
+        initializeFields();
+
+        hospitals.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                sendUsertoMap();
+
+            }
+        });
+
+    }
+
+    private void sendUsertoMap() {
+
+        Intent mapIntent = new Intent(MainActivity.this,MapsActivity.class);
+        startActivity(mapIntent);
+    }
+
+    private void initializeFields() {
+
+        hospitals = (Button) findViewById(R.id.bthospital);
     }
 
     @Override
@@ -42,8 +67,10 @@ public class MainActivity extends AppCompatActivity {
             sendUsertoLoginActivity();
 
         }
-
     }
+
+
+
 
     private void sendUsertoLoginActivity() {
 
@@ -58,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
          getMenuInflater().inflate(R.menu.options_menu,menu);
          return true;
     }
+
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
