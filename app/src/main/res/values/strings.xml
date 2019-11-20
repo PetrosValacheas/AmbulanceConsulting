@@ -2,4 +2,5 @@
     <string name="app_name">Ambulance Consulting Services</string>
     <string name="new_here"><u>New here? Sign up...</u></string>
     <string name="title_activity_maps">Map</string>
+    <string name="INfo">Information</string>
 </resources>

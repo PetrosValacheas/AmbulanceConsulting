@@ -19,6 +19,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class MainActivity extends AppCompatActivity {
 
     private Button hospitals;
+    private Button infos;
 
     private FirebaseUser currentUser;
     private FirebaseAuth mAuth;
@@ -40,10 +41,26 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 sendUsertoMap();
-
             }
         });
 
+        infos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                sendUsertoInfos();
+                
+            }
+        });
+
+
+
+    }
+
+    private void sendUsertoInfos() {
+
+        Intent infoIntent = new Intent(MainActivity.this,InfosAcitvity.class);
+        startActivity(infoIntent);
     }
 
     private void sendUsertoMap() {
@@ -55,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
     private void initializeFields() {
 
         hospitals = (Button) findViewById(R.id.bthospital);
+        infos = (Button) findViewById(R.id.btnInfos);
     }
 
     @Override
