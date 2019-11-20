@@ -14,6 +14,7 @@ import android.location.Location;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Adapter;
 import android.widget.EditText;
@@ -51,6 +52,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private Location lastLocation;
     private Marker currentUserLocationMarker;
     private static  final int Request_User_Location_Code = 99;
+    double latitude , longitude;
+    private int ProximityRadius = 10000;
 
 
 
@@ -70,6 +73,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     public void onClick(View v){
+
+        String hospital = "hospital";
+        Object transferData[] = new Object[2];
+        GetNearbyPlaces getNearbyPlaces = new GetNearbyPlaces();
 
         switch (v.getId()){
 
@@ -113,7 +120,31 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     Toast.makeText(this,"Please write any location name....",Toast.LENGTH_SHORT).show();
                 }
                 break;
+             case R.id.hospitals_nearby :
+                mMap.clear();
+                 String url = getUrl(latitude,longitude,hospital);
+                 transferData[0] = mMap;
+                 transferData[1] = url;
+                 getNearbyPlaces.execute(transferData);
+                 Toast.makeText(this,"Searching for Nearby hospitals....",Toast.LENGTH_SHORT).show();
+                 Toast.makeText(this,"Showing  Nearby hospitals....",Toast.LENGTH_SHORT).show();
+                break;
         }
+    }
+
+    private String getUrl(double latitude,double longitude,String  hospital){
+
+        StringBuilder googleUrl = new StringBuilder("https://maps.googleapis.com/maps/api/place/nearbysearch/json?");
+        googleUrl.append("location"+latitude+","+longitude);
+        googleUrl.append("&radius="+ProximityRadius);
+        googleUrl.append("&type="+hospital);
+        googleUrl.append("&sensor=true");
+        googleUrl.append("&key="+ "AIzaSyDLfYsTGMpMPQdvfYVlGr9HtjE6eD2sKk0");
+
+        Log.d("GoogleMapsActivity", "url = "+googleUrl.toString());
+
+        return googleUrl.toString();
+
     }
 
 
@@ -178,6 +209,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     @Override
     public void onLocationChanged(Location location) {
+
+        latitude = location.getLatitude();
+        longitude = location.getLongitude();
 
         lastLocation = location;
 
