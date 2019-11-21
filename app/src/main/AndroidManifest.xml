@@ -44,6 +44,14 @@
             android:theme="@style/SigninTheme" />
         <activity android:name=".activities.RegisterActivity" />
         <activity android:name=".activities.InfosAcitvity"/>
+        <activity android:name=".activities.AllergicActivity"/>
+        <activity android:name=".activities.BoneActivity"/>
+        <activity android:name=".activities.BurnActivity"/>
+        <activity android:name=".activities.HeartActivity"/>
+        <activity android:name=".activities.HeatActivity"/>
+        <activity android:name=".activities.PoisonActivity"/>
+        <activity android:name=".activities.StrokeAcivity"/>
+        <activity android:name=".activities.TraumaActivity"/>
 
     </application>
 
