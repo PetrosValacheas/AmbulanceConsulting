@@ -126,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
              mAuth.signOut();
              sendUsertoLoginActivity();
          }
-        if(item.getItemId() == R.id.main_settings_option){
+        if(item.getItemId() == R.id.main_Profile_option){
 
         }
        return true;
