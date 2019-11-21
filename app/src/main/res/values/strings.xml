@@ -3,4 +3,8 @@
     <string name="new_here"><u>New here? Sign up...</u></string>
     <string name="title_activity_maps">Map</string>
     <string name="INfo">Information</string>
+    <string name="nameTextView">Name</string>
+    <string name="usernNameTextView">Username</string>
+    <string name="nobileTextView">Mobile Phone</string>
+    <string name="emailTextView">Email</string>
 </resources>

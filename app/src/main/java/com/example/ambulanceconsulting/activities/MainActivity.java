@@ -99,12 +99,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-
     private void sendUsertoLoginActivity() {
 
         Intent loginIntent = new Intent( MainActivity.this, LoginActivity.class);
         startActivity(loginIntent);
+    }
+    private void sendUsertoProfile() {
+
+        Intent profileIntent = new Intent(MainActivity.this, ProfileActivity.class);
+        startActivity(profileIntent);
     }
 
     @Override
@@ -128,6 +131,7 @@ public class MainActivity extends AppCompatActivity {
          }
         if(item.getItemId() == R.id.main_Profile_option){
 
+            sendUsertoProfile();
         }
        return true;
     }
