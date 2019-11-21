@@ -52,6 +52,7 @@
         <activity android:name=".activities.PoisonActivity"/>
         <activity android:name=".activities.StrokeAcivity"/>
         <activity android:name=".activities.TraumaActivity"/>
+        <activity android:name=".activities.ContactActivity"/>
 
     </application>
 

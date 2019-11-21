@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button hospitals;
     private Button infos;
+    private Button call;
 
     private FirebaseUser currentUser;
     private FirebaseAuth mAuth;
@@ -52,9 +53,18 @@ public class MainActivity extends AppCompatActivity {
                 
             }
         });
+        call.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendUsertoCall();
+            }
+        });
+    }
 
+    private void sendUsertoCall() {
 
-
+        Intent callIntent = new Intent(MainActivity.this,ContactActivity.class);
+        startActivity(callIntent);
     }
 
     private void sendUsertoInfos() {
@@ -73,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
 
         hospitals = (Button) findViewById(R.id.bthospital);
         infos = (Button) findViewById(R.id.btnInfos);
+        call = (Button)findViewById(R.id.btnCall);
     }
 
     @Override

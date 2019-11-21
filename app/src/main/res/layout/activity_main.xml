@@ -55,6 +55,25 @@
                     android:id="@+id/btnInfos"
                     />
             </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/call"
+                android:layout_gravity="center"
+                android:layout_width="fill_parent"
+
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                card_view:cardElevation="10dp"
+                card_view:cardCornerRadius="10dp"
+                >
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:background="@drawable/ic_id"
+                    android:id="@+id/btnCall"
+                    />
+            </androidx.cardview.widget.CardView>
 
 
 
