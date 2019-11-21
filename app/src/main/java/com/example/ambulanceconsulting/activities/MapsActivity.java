@@ -135,7 +135,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private String getUrl(double latitude,double longitude,String  hospital){
 
         StringBuilder googleUrl = new StringBuilder("https://maps.googleapis.com/maps/api/place/nearbysearch/json?");
-        googleUrl.append("location"+latitude+","+longitude);
+        googleUrl.append("location="+latitude+","+longitude);
         googleUrl.append("&radius="+ProximityRadius);
         googleUrl.append("&type="+hospital);
         googleUrl.append("&sensor=true");
