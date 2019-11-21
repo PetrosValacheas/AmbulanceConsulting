@@ -22,7 +22,7 @@ public class ContactActivity extends AppCompatActivity {
     private Button callAmbulance ,callNEambulance , callEuropean,callBloodDonation,callPoisonCenter,callOnDutyHospitals;
 
     private static final int REQUEST_CALL = 1;
-    private static String contactNumbers [] = new String[] {"166","210691300", "112", "2102410000", "2107793777","1434"};
+    private static String contactNumbers [] = new String[] {"166","210691300", "14944", "2102410000", "2107793777","1434"};
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
