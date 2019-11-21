@@ -19,6 +19,10 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import model.member;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -28,8 +32,10 @@ public class RegisterActivity extends AppCompatActivity {
     private Button registerButton;
 
     private ProgressDialog loadingBar;
-
+    DatabaseReference reff;
     FirebaseAuth mauth;
+
+   member Member;
 
 
     @Override
@@ -41,6 +47,9 @@ public class RegisterActivity extends AppCompatActivity {
         mauth = FirebaseAuth.getInstance();
 
         initializeFields();
+
+        Member = new member();
+        reff = FirebaseDatabase.getInstance().getReference().child("Member");
 
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,12 +76,12 @@ public class RegisterActivity extends AppCompatActivity {
 
     private void createNewAccount() {
 
-        String email = registerEmail.getText().toString();
-        String name  = registerName.getText().toString();
-        String username = registerUsername.getText().toString();
-        String mobile = registerMobileNumber.getText().toString();
-        String password = registerPassword.getText().toString();
-        String retypedPass = registerRetypePassword.getText().toString();
+        String email = registerEmail.getText().toString().trim();
+        String name  = registerName.getText().toString().trim();
+        String username = registerUsername.getText().toString().trim();
+        String mobile = registerMobileNumber.getText().toString().trim();
+        String password = registerPassword.getText().toString().trim();
+        String retypedPass = registerRetypePassword.getText().toString().trim();
 
         if(TextUtils.isEmpty(username)){
             Toast.makeText(this,"Please enter email .......", Toast.LENGTH_SHORT);
@@ -83,6 +92,12 @@ public class RegisterActivity extends AppCompatActivity {
         if(TextUtils.isEmpty(password)){
             Toast.makeText(this,"Please enter password .......", Toast.LENGTH_SHORT);
         }
+
+        Member.setEmail(email);
+        Member.setMobile(mobile);
+        Member.setName(name);
+        Member.setUsername(username);
+
 
         if(validate(password,retypedPass)){
 
@@ -96,6 +111,8 @@ public class RegisterActivity extends AppCompatActivity {
                 public void onComplete(@NonNull Task<AuthResult> task) {
 
                     if(task.isSuccessful()){
+
+                        reff.push().setValue(Member);
 
                         sendUsertoLoginActivity();
 
