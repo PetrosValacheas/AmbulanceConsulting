@@ -19,6 +19,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import org.w3c.dom.Text;
 
+import model.member;
+
 public class ProfileActivity extends AppCompatActivity {
 
     private TextView userName , mobile , email , name ;
@@ -43,32 +45,26 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
+
                 if(dataSnapshot.exists()){
 
-                    String myName = dataSnapshot.child("name").getValue().toString();
                     String myEmail = dataSnapshot.child("email").getValue().toString();
-                    String myuserName = dataSnapshot.child("username").getValue().toString();
+                    String myName = dataSnapshot.child("name").getValue().toString();
                     String myMobile = dataSnapshot.child("mobile").getValue().toString();
+                    String myuserName = dataSnapshot.child("username").getValue().toString();
 
-                    Log.d("Profile","EMAIL: "+ myEmail);
-                    Log.d("Profile","Username: "+ myuserName);
-
-
-                 email.setText("koula");
-                 name.setText(myName);
-                 userName.setText(myuserName);
-                 mobile.setText(myMobile);
+                    email.setText(myEmail);
+                    name.setText(myName);
+                    userName.setText(myuserName);
+                    mobile.setText(myMobile);
                 }
             }
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
-
-
+                Log.d("Error",databaseError.getDetails());
             }
         }));
-
-        Log.d("PROFILE","CANCEL" + email.getText().toString());
 
     }
 

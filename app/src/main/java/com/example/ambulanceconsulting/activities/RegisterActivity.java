@@ -112,7 +112,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                     if(task.isSuccessful()){
 
-                        reff.push().setValue(Member);
+                        reff.child(mauth.getCurrentUser().getUid()).setValue(Member);
 
                         sendUsertoLoginActivity();
 
