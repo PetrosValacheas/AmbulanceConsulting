@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private Button hospitals;
     private Button infos;
     private Button call;
+    private Button medicalDiagnosis;
 
     private FirebaseUser currentUser;
     private FirebaseAuth mAuth;
@@ -59,6 +60,21 @@ public class MainActivity extends AppCompatActivity {
                 sendUsertoCall();
             }
         });
+
+        medicalDiagnosis.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendUsertoDiagnosis();
+            }
+        });
+
+
+    }
+
+    private void sendUsertoDiagnosis() {
+
+        Intent medicalintent = new Intent(MainActivity.this,SymptomsActivity.class);
+        startActivity(medicalintent);
     }
 
     private void sendUsertoCall() {
@@ -84,6 +100,7 @@ public class MainActivity extends AppCompatActivity {
         hospitals = (Button) findViewById(R.id.bthospital);
         infos = (Button) findViewById(R.id.btnInfos);
         call = (Button)findViewById(R.id.btnCall);
+        medicalDiagnosis = (Button)findViewById(R.id.btnDiagnosis);
     }
 
     @Override
