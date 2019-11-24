@@ -17,7 +17,8 @@
     <CheckBox
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layoutDirection="rtl"/>
+        android:layoutDirection="rtl"
+        android:id="@+id/checkboxId"/>
 
 
 
