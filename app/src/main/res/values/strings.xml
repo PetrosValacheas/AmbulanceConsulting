@@ -7,4 +7,7 @@
     <string name="usernNameTextView">Username</string>
     <string name="nobileTextView">Mobile Phone</string>
     <string name="emailTextView">Email</string>
+    <string name="YearofBirth">Year of Birth</string>
+    <string name="gender">Gender</string>
+    <string name="diagnosis">Diagnosis</string>
 </resources>
