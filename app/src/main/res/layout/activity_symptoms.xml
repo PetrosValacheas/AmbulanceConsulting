@@ -4,10 +4,19 @@
     android:layout_height="match_parent"
     android:padding="5dp">
 
-
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:id="@+id/continueDiagnosis"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_done_black_24dp"
+        />
+    
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_symptom_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
 
 </LinearLayout>
