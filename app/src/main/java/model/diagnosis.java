@@ -3,16 +3,19 @@ package model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 import java.util.List;
 
 
-public class diagnosis {
+public class diagnosis implements Serializable {
     @SerializedName("Specialisation")
     @Expose
     List<specializationSpecifics> specialization;
     @SerializedName("Issue")
     @Expose
     Isuue issue;
+
+    private static final long serialVersionUID = 1L;
 
     public diagnosis( Isuue issue , List<specializationSpecifics> specialization) {
        // this.specialization = specialization;
