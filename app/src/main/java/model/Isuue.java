@@ -3,7 +3,9 @@ package model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Isuue {
+import java.io.Serializable;
+
+public class Isuue implements Serializable {
 
     @SerializedName("ID")
     @Expose

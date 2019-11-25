@@ -3,7 +3,9 @@ package model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class specializationSpecifics {
+import java.io.Serializable;
+
+public class specializationSpecifics implements Serializable {
     @SerializedName("ID")
     @Expose
     private int id;
