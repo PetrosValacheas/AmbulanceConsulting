@@ -14,27 +14,6 @@
             android:orientation="vertical">
 
 
-            <Button
-                android:id="@+id/buttonAllergicCall"
-                android:layout_width="330dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginBottom="7dp"
-                android:background="@drawable/button_shape"
-                android:shadowColor="#A8A8A8"
-                android:shadowDx="0"
-                android:shadowDy="0"
-                android:shadowRadius="5"
-                android:text="1. Call emergency number(995) "
-                android:textAppearance="@style/TextAppearance.AppCompat.Button"
-                android:textColor="@android:color/white"
-                android:textSize="18sp" />
-
-
             <TextView
                 android:id="@+id/textView11"
                 android:layout_width="330dp"
@@ -45,7 +24,7 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
                 android:background="@drawable/rounded_corner"
-                android:text="2. See if they have an epinephrine (adrenaline) auto-injector (EpiPen) and help them, if needed."
+                android:text="1. See if they have an epinephrine (adrenaline) auto-injector (EpiPen) and help them, if needed."
                 android:textAppearance="@style/TextAppearance.AppCompat" />
 
             <TextView
@@ -58,7 +37,7 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
                 android:background="@drawable/rounded_corner"
-                android:text="3. Try to keep the person calm."
+                android:text="2. Try to keep the person calm."
                 android:textAppearance="@style/TextAppearance.AppCompat" />
 
             <TextView
@@ -71,7 +50,7 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
                 android:background="@drawable/rounded_corner"
-                android:text="4.Help the person lie on their back."
+                android:text="3.Help the person lie on their back."
                 android:textAppearance="@style/TextAppearance.AppCompat" />
 
             <TextView
@@ -84,7 +63,7 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
                 android:background="@drawable/rounded_corner"
-                android:text="5. Raise their feet about 12 inches and cover them with a blanket."
+                android:text="4. Raise their feet about 12 inches and cover them with a blanket."
                 android:textAppearance="@style/TextAppearance.AppCompat" />
 
             <TextView
@@ -97,7 +76,7 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
                 android:background="@drawable/rounded_corner"
-                android:text="6. Turn them on their side if they’re vomiting or bleeding."
+                android:text="5. Turn them on their side if they’re vomiting or bleeding."
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
             <TextView
@@ -110,7 +89,7 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
                 android:background="@drawable/rounded_corner"
-                android:text="7. Make sure their clothing is loose so they can breathe. "
+                android:text="6. Make sure their clothing is loose so they can breathe. "
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
 
@@ -124,7 +103,7 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
                 android:background="@drawable/rounded_corner"
-                android:text="8. If hives or swelling occur apply a cold compress to the area."
+                android:text="7. If hives or swelling occur apply a cold compress to the area."
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
             <TextView
@@ -137,7 +116,7 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
                 android:background="@drawable/rounded_corner"
-                android:text="9. Avoid giving oral medications, anything to drink, or lifting their head, especially if they’re having trouble breathing."
+                android:text="8. Avoid giving oral medications, anything to drink, or lifting their head, especially if they’re having trouble breathing."
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
         </LinearLayout>

@@ -14,26 +14,6 @@
             android:orientation="vertical">
 
 
-            <Button
-                android:id="@+id/buttonStrokeCall"
-                android:layout_width="330dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginBottom="7dp"
-                android:background="@drawable/button_shape"
-                android:shadowColor="#A8A8A8"
-                android:shadowDx="0"
-                android:shadowDy="0"
-                android:shadowRadius="5"
-                android:text="1. Call emergency number(995) "
-                android:textAppearance="@style/TextAppearance.AppCompat.Button"
-                android:textColor="@android:color/white"
-                android:textSize="18sp" />
-
             <TextView
                 android:id="@+id/textView11"
                 android:layout_width="330dp"
@@ -44,7 +24,7 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
                 android:background="@drawable/rounded_corner"
-                android:text="2. Let the person lie comfortably on one side with their head slightly raised and supported, in case they vomit. "
+                android:text="1. Let the person lie comfortably on one side with their head slightly raised and supported, in case they vomit. "
                 android:textAppearance="@style/TextAppearance.AppCompat" />
 
             <TextView
@@ -57,7 +37,7 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
                 android:background="@drawable/rounded_corner"
-                android:text="3. If the person is having difficulty breathing, loosen any constrictive clothing. "
+                android:text="2. If the person is having difficulty breathing, loosen any constrictive clothing. "
                 android:textAppearance="@style/TextAppearance.AppCompat" />
 
             <TextView
@@ -70,7 +50,7 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
                 android:background="@drawable/rounded_corner"
-                android:text="4. If the person is not breathing, perform cpr. "
+                android:text="3. If the person is not breathing, perform cpr. "
                 android:textAppearance="@style/TextAppearance.AppCompat" />
 
             <TextView
@@ -83,7 +63,7 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
                 android:background="@drawable/rounded_corner"
-                android:text="5. Keep them warm, e.g. cover them with a blanket. "
+                android:text="4. Keep them warm, e.g. cover them with a blanket. "
                 android:textAppearance="@style/TextAppearance.AppCompat" />
 
             <TextView
@@ -96,7 +76,7 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
                 android:background="@drawable/rounded_corner"
-                android:text="6. Help the injured person lie down. If possible, place the person on a rug or blanket to prevent loss of body heat. Calmly reassure the injured person."
+                android:text="5. Help the injured person lie down. If possible, place the person on a rug or blanket to prevent loss of body heat. Calmly reassure the injured person."
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
             <TextView
@@ -109,7 +89,7 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
                 android:background="@drawable/rounded_corner"
-                android:text="7. If the person is showing any weakness in a limb, avoid moving them.  "
+                android:text="6. If the person is showing any weakness in a limb, avoid moving them.  "
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
             <TextView
@@ -122,7 +102,7 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
                 android:background="@drawable/rounded_corner"
-                android:text="8. Observe for any change in condition. "
+                android:text="7. Observe for any change in condition. "
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
         </LinearLayout>

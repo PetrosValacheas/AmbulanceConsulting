@@ -27,25 +27,6 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <Button
-                android:id="@+id/buttonHeartCall"
-                android:layout_width="330dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginBottom="7dp"
-                android:background="@drawable/button_shape"
-                android:shadowColor="#A8A8A8"
-                android:shadowDx="0"
-                android:shadowDy="0"
-                android:shadowRadius="5"
-                android:text="1. Call emergency number(995) "
-                android:textAppearance="@style/TextAppearance.AppCompat.Button"
-                android:textColor="@android:color/white"
-                android:textSize="18sp" />
             <TextView
                 android:id="@+id/textView11"
                 android:layout_width="330dp"
@@ -56,7 +37,7 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
                 android:background="@drawable/rounded_corner"
-                android:text="2. Chew and swallow aspirin, if not allergic. "
+                android:text="1. Chew and swallow aspirin, if not allergic. "
                 android:textAppearance="@style/TextAppearance.AppCompat" />
             <TextView
                 android:id="@+id/textView12"
@@ -68,7 +49,7 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
                 android:background="@drawable/rounded_corner"
-                android:text="3. Do not get the person to cough repeatedly."
+                android:text="2. Do not get the person to cough repeatedly."
                 android:textAppearance="@style/TextAppearance.AppCompat" />
 
             <TextView
@@ -81,7 +62,7 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
                 android:background="@drawable/rounded_corner"
-                android:text="4. If the person is unconscious, begin CPR. "
+                android:text="3. If the person is unconscious, begin CPR. "
                 android:textAppearance="@style/TextAppearance.AppCompat" />
 
             <TextView
@@ -94,7 +75,7 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
                 android:background="@drawable/rounded_corner"
-                android:text="Guide to CPR"
+                android:text="4. Guide to CPR"
                 android:textAppearance="@style/TextAppearance.AppCompat"
                 android:textColor="#3F51B5"/>
 
@@ -108,7 +89,7 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
                 android:background="@drawable/rounded_corner"
-                android:text="6. Follow AED instructions, if the person is unconsciously and AED is available. "
+                android:text="5. Follow AED instructions, if the person is unconsciously and AED is available. "
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
 

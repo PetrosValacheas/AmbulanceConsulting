@@ -14,27 +14,6 @@
             android:orientation="vertical">
 
 
-            <Button
-                android:id="@+id/buttonBurnCall"
-                android:layout_width="330dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginBottom="7dp"
-                android:background="@drawable/button_shape"
-                android:shadowColor="#A8A8A8"
-                android:shadowDx="0"
-                android:shadowDy="0"
-                android:shadowRadius="5"
-                android:text="1. Call emergency number(995) "
-                android:textAppearance="@style/TextAppearance.AppCompat.Button"
-                android:textColor="@android:color/white"
-                android:textSize="18sp" />
-
-
             <TextView
                 android:id="@+id/textView11"
                 android:layout_width="330dp"
@@ -45,7 +24,7 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
                 android:background="@drawable/rounded_corner"
-                android:text="2. These wounds should not be immersed, as cool water can intensify the circulatory shock that accompanies third-degree burns"
+                android:text="1. These wounds should not be immersed, as cool water can intensify the circulatory shock that accompanies third-degree burns"
                 android:textAppearance="@style/TextAppearance.AppCompat" />
 
             <TextView
@@ -58,7 +37,7 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
                 android:background="@drawable/rounded_corner"
-                android:text="3. Cover the injuries with bulky, sterile dressings or with freshly laundered bed linens. "
+                android:text="2. Cover the injuries with bulky, sterile dressings or with freshly laundered bed linens. "
                 android:textAppearance="@style/TextAppearance.AppCompat" />
 
             <TextView
@@ -71,7 +50,7 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
                 android:background="@drawable/rounded_corner"
-                android:text="4. .Clothing stuck to the wound should not be removed, nor should any ointments, salves, sprays, etc. be applied."
+                android:text="3. .Clothing stuck to the wound should not be removed, nor should any ointments, salves, sprays, etc. be applied."
                 android:textAppearance="@style/TextAppearance.AppCompat" />
 
             <TextView
@@ -84,7 +63,7 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
                 android:background="@drawable/rounded_corner"
-                android:text="5. Burned feet and legs should be elevated, and burned hands should be raised above the level of the heart."
+                android:text="4. Burned feet and legs should be elevated, and burned hands should be raised above the level of the heart."
                 android:textAppearance="@style/TextAppearance.AppCompat" />
 
             <TextView
@@ -97,7 +76,7 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
                 android:background="@drawable/rounded_corner"
-                android:text="6. The victim’s breathing must be closely watched; artificial respiration should be given if breathing stops."
+                android:text="5. The victim’s breathing must be closely watched; artificial respiration should be given if breathing stops."
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
             <TextView
@@ -110,7 +89,7 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
                 android:background="@drawable/rounded_corner"
-                android:text="7. Make sure their clothing is loose so they can breathe. "
+                android:text="6. Make sure their clothing is loose so they can breathe. "
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
         </LinearLayout>

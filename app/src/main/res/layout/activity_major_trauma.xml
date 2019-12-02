@@ -13,26 +13,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
-                android:id="@+id/buttonTraumaCall"
-                android:layout_width="330dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginBottom="7dp"
-                android:background="@drawable/button_shape"
-                android:shadowColor="#A8A8A8"
-                android:shadowDx="0"
-                android:shadowDy="0"
-                android:shadowRadius="5"
-                android:text="1. Call emergency number(995) "
-                android:textAppearance="@style/TextAppearance.AppCompat.Button"
-                android:textColor="@android:color/white"
-                android:textSize="18sp" />
-
 
             <TextView
                 android:id="@+id/textView11"
@@ -44,7 +24,7 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
                 android:background="@drawable/rounded_corner"
-                android:text="2. Remove any clothing or debris on the wound. Don't remove large or deeply embedded objects.  Your first job is to stop the bleeding. "
+                android:text="1. Remove any clothing or debris on the wound. Don't remove large or deeply embedded objects.  Your first job is to stop the bleeding. "
                 android:textAppearance="@style/TextAppearance.AppCompat" />
 
             <TextView
@@ -57,7 +37,7 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
                 android:background="@drawable/rounded_corner"
-                android:text="3. Place a sterile bandage or clean cloth on the wound. Press the bandage firmly with your palm to control bleeding. Apply constant pressure until the bleeding stops. Don't put direct pressure on an eye injury or embedded object."
+                android:text="2. Place a sterile bandage or clean cloth on the wound. Press the bandage firmly with your palm to control bleeding. Apply constant pressure until the bleeding stops. Don't put direct pressure on an eye injury or embedded object."
                 android:textAppearance="@style/TextAppearance.AppCompat" />
 
             <TextView
@@ -70,7 +50,7 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
                 android:background="@drawable/rounded_corner"
-                android:text="4.Secure the bandage with adhesive tape or continue to maintain pressure with your hands. If possible, raise an injured limb above the level of the heart."
+                android:text="3.Secure the bandage with adhesive tape or continue to maintain pressure with your hands. If possible, raise an injured limb above the level of the heart."
                 android:textAppearance="@style/TextAppearance.AppCompat" />
 
             <TextView
@@ -83,7 +63,7 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
                 android:background="@drawable/rounded_corner"
-                android:text="5. Immobilize the injured body part as much as possible. Leave the bandages in place and get the injured person to an emergency room as soon as possible."
+                android:text="4. Immobilize the injured body part as much as possible. Leave the bandages in place and get the injured person to an emergency room as soon as possible."
                 android:textAppearance="@style/TextAppearance.AppCompat" />
 
             <TextView
@@ -96,7 +76,7 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
                 android:background="@drawable/rounded_corner"
-                android:text="6. Help the injured person lie down. If possible, place the person on a rug or blanket to prevent loss of body heat. Calmly reassure the injured person."
+                android:text="5. Help the injured person lie down. If possible, place the person on a rug or blanket to prevent loss of body heat. Calmly reassure the injured person."
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
         </LinearLayout>
     </ScrollView>

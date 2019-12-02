@@ -14,27 +14,6 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <Button
-                android:id="@+id/buttonHeatCall"
-                android:layout_width="330dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginBottom="7dp"
-                android:background="@drawable/button_shape"
-                android:shadowColor="#A8A8A8"
-                android:shadowDx="0"
-                android:shadowDy="0"
-                android:shadowRadius="5"
-                android:text="1. Call emergency number(995) "
-                android:textAppearance="@style/TextAppearance.AppCompat.Button"
-                android:textColor="@android:color/white"
-                android:textSize="18sp" />
-
-
             <TextView
                 android:id="@+id/textView11"
                 android:layout_width="330dp"
@@ -45,7 +24,7 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
                 android:background="@drawable/rounded_corner"
-                android:text="2. Move person to a cool or air-conditioned environment. "
+                android:text="1. Move person to a cool or air-conditioned environment. "
                 android:textAppearance="@style/TextAppearance.AppCompat" />
 
             <TextView
@@ -58,7 +37,7 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
                 android:background="@drawable/rounded_corner"
-                android:text="3. Remove any unnecessary clothing."
+                android:text="2. Remove any unnecessary clothing."
                 android:textAppearance="@style/TextAppearance.AppCompat" />
 
             <TextView
@@ -71,7 +50,7 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
                 android:background="@drawable/rounded_corner"
-                android:text="4. Fan air over the patient while wetting his/her skin with water from a sponge/hose."
+                android:text="3. Fan air over the patient while wetting his/her skin with water from a sponge/hose."
                 android:textAppearance="@style/TextAppearance.AppCompat" />
 
             <TextView
@@ -84,7 +63,7 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
                 android:background="@drawable/rounded_corner"
-                android:text="5. Rehydrate with water or sports drinks. Avoid sugary or alcoholic beverages. "
+                android:text="4. Rehydrate with water or sports drinks. Avoid sugary or alcoholic beverages. "
                 android:textAppearance="@style/TextAppearance.AppCompat" />
 
             <TextView
@@ -97,7 +76,7 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
                 android:background="@drawable/rounded_corner"
-                android:text="6. Apply ice packs to the patient’s armpits, groin, neck and back. "
+                android:text="5. Apply ice packs to the patient’s armpits, groin, neck and back. "
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
             <TextView
@@ -110,7 +89,7 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
                 android:background="@drawable/rounded_corner"
-                android:text="7. If possible, immerse patient in a shower or tub of cool water. "
+                android:text="6. If possible, immerse patient in a shower or tub of cool water. "
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
         </LinearLayout>
