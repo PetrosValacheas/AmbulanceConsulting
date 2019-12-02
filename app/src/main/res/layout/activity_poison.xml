@@ -107,7 +107,7 @@
                 android:text="7. If vomiting and diarrhea lasts more than 24 hours, drink oral rehydration solution.  "
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
-            <Button
+            <TextView
 
                 android:layout_width="330dp"
                 android:layout_height="wrap_content"
@@ -126,26 +126,6 @@ Bloody diarrhea or dark stools.
 Prolonged or bloody vomiting."
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 tools:textColor="@color/design_default_color_primary_dark"/>
-            <Button
-                android:id="@+id/buttonPoisonLocate"
-                android:layout_width="330dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginBottom="7dp"
-                android:background="@drawable/button_shape"
-                android:shadowColor="#A8A8A8"
-                android:shadowDx="0"
-                android:shadowDy="0"
-                android:shadowRadius="5"
-                android:text=" Find nearest polyclinic "
-                android:textAppearance="@style/TextAppearance.AppCompat.Button"
-                android:textColor="@android:color/white"
-                android:textSize="18sp" />
-
 
 
 
