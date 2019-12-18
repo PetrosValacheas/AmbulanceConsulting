@@ -13,5 +13,11 @@
         android:id="@+id/main_logout_option"
         app:showAsAction="never">
     </item>
+    <item
+        android:title="Heart Rate"
+        android:id="@+id/main_heart_rate"
+        app:showAsAction="never">
+    </item>
+
 
 </menu>

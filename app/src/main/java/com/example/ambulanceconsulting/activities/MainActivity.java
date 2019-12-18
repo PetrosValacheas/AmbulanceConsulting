@@ -67,8 +67,6 @@ public class MainActivity extends AppCompatActivity {
                 sendUsertoDiagnosis();
             }
         });
-
-
     }
 
     private void sendUsertoDiagnosis() {
@@ -94,6 +92,11 @@ public class MainActivity extends AppCompatActivity {
         Intent mapIntent = new Intent(MainActivity.this,MapsActivity.class);
         startActivity(mapIntent);
     }
+    private void sendUsertoHeartRate() {
+
+        Intent heartIntent = new Intent(MainActivity.this,HeartRateProcess.class);
+        startActivity(heartIntent);
+    }
 
     private void initializeFields() {
 
@@ -114,7 +117,6 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
-
 
     private void sendUsertoLoginActivity() {
 
@@ -150,6 +152,16 @@ public class MainActivity extends AppCompatActivity {
 
             sendUsertoProfile();
         }
+        if(item.getItemId() == R.id.main_heart_rate){
+
+            sendUsertoHeartRate();
+        }
        return true;
+    }
+
+    private void sendUsertoHeartCheck() {
+
+        Intent heartCheckIntent = new Intent(MainActivity.this, HeartRateProcess.class);
+        startActivity(heartCheckIntent);
     }
 }

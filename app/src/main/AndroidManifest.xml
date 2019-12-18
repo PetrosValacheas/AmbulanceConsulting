@@ -9,6 +9,12 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.hardware.camera" />
+    <uses-permission android:name="android.hardware.camera.flash" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.hardware.camera.autofocus" />
 
     <application
         android:allowBackup="true"
@@ -50,6 +56,8 @@
         <activity android:name=".activities.SymptomsActivity"/>
         <activity android:name=".activities.DiagnosisActivity"/>
         <activity android:name=".activities.DiagnosisResultActivity"/>
+        <activity android:name=".activities.HeartRateProcess"/>
+        <activity android:name=".activities.HeartRateResult"/>
 
     </application>
 
