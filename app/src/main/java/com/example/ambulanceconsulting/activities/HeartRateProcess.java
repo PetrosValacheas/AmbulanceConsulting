@@ -197,7 +197,7 @@ public class HeartRateProcess extends AppCompatActivity {
                     bufferAvgB = bpm1;
                 }
 
-                if (bufferAvgB < 45 || bufferAvgB > 200) { //if the heart beat wasn't reasonable after all reset the progresspag and restart measuring
+                if (bufferAvgB < 40 || bufferAvgB > 200) { //if the heart beat wasn't reasonable after all reset the progresspag and restart measuring
                     inc=0;
                     ProgP=inc;
                     ProgHeart.setProgress(ProgP);

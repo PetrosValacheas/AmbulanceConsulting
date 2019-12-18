@@ -21,6 +21,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.ambulanceconsulting.R;
+import com.firebase.geofire.GeoFire;
+import com.firebase.geofire.GeoLocation;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -34,6 +36,9 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import org.w3c.dom.Text;
 
@@ -210,6 +215,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onLocationChanged(Location location) {
 
+        String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        DatabaseReference ambulanceAvailability = FirebaseDatabase.getInstance().getReference().child("Ambulances Available");
+
+        GeoFire geoFire = new GeoFire(ambulanceAvailability);
+        geoFire.setLocation(userId,new GeoLocation(location.getLatitude(),location.getLongitude()));
+
         latitude = location.getLatitude();
         longitude = location.getLongitude();
 
@@ -238,6 +249,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+        String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        DatabaseReference ambulanceAvailability = FirebaseDatabase.getInstance().getReference().child("Ambulances Available");
+
+        GeoFire geoFire = new GeoFire(ambulanceAvailability);
+        geoFire.removeLocation(userId);
+    }
 
     @Override
     public void onConnected(@Nullable Bundle bundle) {
