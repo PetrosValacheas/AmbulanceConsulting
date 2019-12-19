@@ -1,9 +1,12 @@
 package com.example.ambulanceconsulting.activities;
 
 import android.Manifest;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -47,9 +50,15 @@ public class MainActivity extends AppCompatActivity  {
 
         setContentView(R.layout.activity_main);
 
+        if(Build.VERSION.SDK_INT>= Build.VERSION_CODES.O){
+
+            NotificationChannel channel = new NotificationChannel("MyNotifications","MyNotifications", NotificationManager.IMPORTANCE_DEFAULT);
+
+            NotificationManager manager = getSystemService(NotificationManager.class);
+            manager.createNotificationChannel(channel);
+        }
+
         client = LocationServices.getFusedLocationProviderClient(this);
-
-
 
 
         mAuth = FirebaseAuth.getInstance();

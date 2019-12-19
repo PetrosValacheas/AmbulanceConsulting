@@ -59,6 +59,13 @@
         <activity android:name=".activities.HeartRateProcess"/>
         <activity android:name=".activities.HeartRateResult"/>
 
+        <service android:name=".activities.MyMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING-EVENT"/>
+            </intent-filter>
+        </service>
+
+
     </application>
 
 </manifest>
