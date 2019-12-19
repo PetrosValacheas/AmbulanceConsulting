@@ -253,11 +253,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     protected void onStop() {
         super.onStop();
 
-        String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        /*String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
         DatabaseReference ambulanceAvailability = FirebaseDatabase.getInstance().getReference().child("Ambulances Available");
 
         GeoFire geoFire = new GeoFire(ambulanceAvailability);
-        geoFire.removeLocation(userId);
+        geoFire.removeLocation(userId);*/
     }
 
     @Override

@@ -186,6 +186,17 @@ public class MainActivity extends AppCompatActivity  {
         });
     }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+        String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        DatabaseReference ambulanceAvailability = FirebaseDatabase.getInstance().getReference().child("Ambulances Available");
+
+        GeoFire geoFire = new GeoFire(ambulanceAvailability);
+        geoFire.removeLocation(userId);
+    }
+
     private void sendUsertoLoginActivity() {
 
         Intent loginIntent = new Intent( MainActivity.this, LoginActivity.class);
