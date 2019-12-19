@@ -187,9 +187,8 @@ public class MainActivity extends AppCompatActivity  {
     }
 
     @Override
-    protected void onStop() {
-        super.onStop();
-
+    protected void onDestroy() {
+        super.onDestroy();
         String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
         DatabaseReference ambulanceAvailability = FirebaseDatabase.getInstance().getReference().child("Ambulances Available");
 
