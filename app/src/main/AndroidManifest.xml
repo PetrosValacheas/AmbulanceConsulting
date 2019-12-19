@@ -58,6 +58,8 @@
         <activity android:name=".activities.DiagnosisResultActivity"/>
         <activity android:name=".activities.HeartRateProcess"/>
         <activity android:name=".activities.HeartRateResult"/>
+        <activity android:name=".activities.respirationProcess"/>
+        <activity android:name=".activities.respiration_result"/>
 
         <service android:name=".activities.MyMessagingService">
             <intent-filter>

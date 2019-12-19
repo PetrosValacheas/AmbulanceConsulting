@@ -243,7 +243,18 @@ public class MainActivity extends AppCompatActivity  {
 
             sendUsertoHeartRate();
         }
+
+        if(item.getItemId() == R.id.main_respiration_rate){
+
+            sendUsertorespirationRate();
+        }
        return true;
+    }
+
+    private void sendUsertorespirationRate() {
+
+        Intent respirationCheckIntent = new Intent(MainActivity.this, respirationProcess.class);
+        startActivity(respirationCheckIntent);
     }
 
     private void sendUsertoHeartCheck() {
