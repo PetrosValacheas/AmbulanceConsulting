@@ -1,22 +1,35 @@
 package com.example.ambulanceconsulting.activities;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import com.example.ambulanceconsulting.R;
+import com.firebase.geofire.GeoFire;
+import com.firebase.geofire.GeoLocation;
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationListener;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity  {
 
     private Button hospitals;
     private Button infos;
@@ -26,11 +39,17 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseUser currentUser;
     private FirebaseAuth mAuth;
 
+    private FusedLocationProviderClient client;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
+
+        client = LocationServices.getFusedLocationProviderClient(this);
+
+
 
 
         mAuth = FirebaseAuth.getInstance();
@@ -116,6 +135,55 @@ public class MainActivity extends AppCompatActivity {
             sendUsertoLoginActivity();
 
         }
+
+        if(ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_FINE_LOCATION)!= PackageManager.PERMISSION_GRANTED ){
+            return;
+        }
+
+        client.getLastLocation().addOnSuccessListener(MainActivity.this, new OnSuccessListener<Location>() {
+            @Override
+            public void onSuccess(Location location) {
+
+                if(location!=null){
+
+                    //Toast.makeText(MainActivity.this,"Location:"+location.toString(),Toast.LENGTH_SHORT).show();
+                    String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                    DatabaseReference ambulanceAvailability = FirebaseDatabase.getInstance().getReference().child("Ambulances Available");
+
+                    GeoFire geoFire = new GeoFire(ambulanceAvailability);
+                    geoFire.setLocation(userId,new GeoLocation(location.getLatitude(),location.getLongitude()));
+
+                }
+
+            }
+        });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        if(ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_FINE_LOCATION)!= PackageManager.PERMISSION_GRANTED ){
+            return;
+        }
+
+        client.getLastLocation().addOnSuccessListener(MainActivity.this, new OnSuccessListener<Location>() {
+            @Override
+            public void onSuccess(Location location) {
+
+                if(location!=null){
+
+                    //Toast.makeText(MainActivity.this,"Location:"+location.toString(),Toast.LENGTH_SHORT).show();
+                    String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                    DatabaseReference ambulanceAvailability = FirebaseDatabase.getInstance().getReference().child("Ambulances Available");
+
+                    GeoFire geoFire = new GeoFire(ambulanceAvailability);
+                    geoFire.setLocation(userId,new GeoLocation(location.getLatitude(),location.getLongitude()));
+
+                }
+
+            }
+        });
     }
 
     private void sendUsertoLoginActivity() {
