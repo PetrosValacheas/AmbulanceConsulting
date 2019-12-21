@@ -31,6 +31,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.iid.FirebaseInstanceId;
 
 public class MainActivity extends AppCompatActivity  {
 
@@ -44,11 +45,17 @@ public class MainActivity extends AppCompatActivity  {
 
     private FusedLocationProviderClient client;
 
+    DatabaseReference ambulanceAvailability;
+    DatabaseReference tokensAvailability;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
+
+        ambulanceAvailability = FirebaseDatabase.getInstance().getReference().child("Ambulances Available");
+        tokensAvailability =    FirebaseDatabase.getInstance().getReference().child("Ambulance Tokens");
 
         if(Build.VERSION.SDK_INT>= Build.VERSION_CODES.O){
 
@@ -143,69 +150,84 @@ public class MainActivity extends AppCompatActivity  {
 
             sendUsertoLoginActivity();
 
-        }
+        }else{
 
-        if(ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_FINE_LOCATION)!= PackageManager.PERMISSION_GRANTED ){
-            return;
-        }
-
-        client.getLastLocation().addOnSuccessListener(MainActivity.this, new OnSuccessListener<Location>() {
-            @Override
-            public void onSuccess(Location location) {
-
-                if(location!=null){
-
-                    //Toast.makeText(MainActivity.this,"Location:"+location.toString(),Toast.LENGTH_SHORT).show();
-                    String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                    DatabaseReference ambulanceAvailability = FirebaseDatabase.getInstance().getReference().child("Ambulances Available");
-
-                    GeoFire geoFire = new GeoFire(ambulanceAvailability);
-                    geoFire.setLocation(userId,new GeoLocation(location.getLatitude(),location.getLongitude()));
-
-                }
-
+            if(ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_FINE_LOCATION)!= PackageManager.PERMISSION_GRANTED ){
+                return;
             }
-        });
+
+            client.getLastLocation().addOnSuccessListener(MainActivity.this, new OnSuccessListener<Location>() {
+                @Override
+                public void onSuccess(Location location) {
+
+                    if(location!=null){
+
+                        //Toast.makeText(MainActivity.this,"Location:"+location.toString(),Toast.LENGTH_SHORT).show();
+                        String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+                        GeoFire geoFire = new GeoFire(ambulanceAvailability);
+                        geoFire.setLocation(userId,new GeoLocation(location.getLatitude(),location.getLongitude()));
+
+                        String refreshedToken = FirebaseInstanceId.getInstance().getToken();
+
+                        tokensAvailability.child(userId).setValue(refreshedToken);
+
+                    }
+                }
+            });
+
+
+        }
+
+
     }
 
     @Override
     protected void onResume() {
         super.onResume();
 
-        if(ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_FINE_LOCATION)!= PackageManager.PERMISSION_GRANTED ){
-            return;
-        }
+        if(currentUser!=null){
 
-        client.getLastLocation().addOnSuccessListener(MainActivity.this, new OnSuccessListener<Location>() {
-            @Override
-            public void onSuccess(Location location) {
-
-                if(location!=null){
-
-                    //Toast.makeText(MainActivity.this,"Location:"+location.toString(),Toast.LENGTH_SHORT).show();
-                    String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                    DatabaseReference ambulanceAvailability = FirebaseDatabase.getInstance().getReference().child("Ambulances Available");
-
-                    GeoFire geoFire = new GeoFire(ambulanceAvailability);
-                    geoFire.setLocation(userId,new GeoLocation(location.getLatitude(),location.getLongitude()));
-
-                }
-
+            if(ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_FINE_LOCATION)!= PackageManager.PERMISSION_GRANTED ){
+                return;
             }
-        });
+
+            client.getLastLocation().addOnSuccessListener(MainActivity.this, new OnSuccessListener<Location>() {
+                @Override
+                public void onSuccess(Location location) {
+
+                    if(location!=null){
+
+                        //Toast.makeText(MainActivity.this,"Location:"+location.toString(),Toast.LENGTH_SHORT).show();
+                        String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+
+                        GeoFire geoFire = new GeoFire(ambulanceAvailability);
+                        geoFire.setLocation(userId,new GeoLocation(location.getLatitude(),location.getLongitude()));
+
+                        String refreshedToken = FirebaseInstanceId.getInstance().getToken();
+
+                        tokensAvailability.child(userId).setValue(refreshedToken);
+
+                    }
+                }
+            });
+
+        }
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
         String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        DatabaseReference ambulanceAvailability = FirebaseDatabase.getInstance().getReference().child("Ambulances Available");
-
         GeoFire geoFire = new GeoFire(ambulanceAvailability);
         geoFire.removeLocation(userId);
+
+        tokensAvailability.child(userId).removeValue();
     }
 
     private void sendUsertoLoginActivity() {
+
 
         Intent loginIntent = new Intent( MainActivity.this, LoginActivity.class);
         startActivity(loginIntent);
@@ -224,7 +246,6 @@ public class MainActivity extends AppCompatActivity  {
          return true;
     }
 
-
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
          super.onOptionsItemSelected(item);
@@ -232,7 +253,14 @@ public class MainActivity extends AppCompatActivity  {
 
          if(item.getItemId() == R.id.main_logout_option){
 
+             String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+             tokensAvailability.child(userId).removeValue();
+             GeoFire geoFire = new GeoFire(ambulanceAvailability);
+             geoFire.removeLocation(userId);
+
              mAuth.signOut();
+
              sendUsertoLoginActivity();
          }
         if(item.getItemId() == R.id.main_Profile_option){
@@ -261,5 +289,12 @@ public class MainActivity extends AppCompatActivity  {
 
         Intent heartCheckIntent = new Intent(MainActivity.this, HeartRateProcess.class);
         startActivity(heartCheckIntent);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+        moveTaskToBack(true);
     }
 }
