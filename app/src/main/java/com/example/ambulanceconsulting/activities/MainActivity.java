@@ -219,11 +219,7 @@ public class MainActivity extends AppCompatActivity  {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        GeoFire geoFire = new GeoFire(ambulanceAvailability);
-        geoFire.removeLocation(userId);
-
-        tokensAvailability.child(userId).removeValue();
+       
     }
 
     private void sendUsertoLoginActivity() {
