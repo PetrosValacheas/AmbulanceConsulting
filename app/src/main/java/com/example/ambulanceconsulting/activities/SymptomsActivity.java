@@ -60,6 +60,8 @@ import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.message.BasicHeader;
 import org.apache.http.message.BasicNameValuePair;
 import org.jetbrains.annotations.NotNull;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.itkacher.okhttpprofiler.OkHttpProfilerInterceptor;
@@ -79,13 +81,13 @@ public class SymptomsActivity extends AppCompatActivity {
     StringBuffer sb = null;
     ArrayList<String> symptomsIds ;
 
-    private static String userName = "petrosva12@gmail.com";
-    private static String passWord = "b6B2EtKc37Qrj9A5X";
+    private static String userName = "Ld36T_GMAIL_COM_AUT";
+    private static String passWord = "s3C9Pam7S6YtEc4x8";
     private String token = "";
     private final OkHttpClient client = new OkHttpClient();
-    private static String Url = "https://sandbox-healthservice.priaid.ch/login";
+    private static String Url = "https://authservice.priaid.ch/login";
 
-    private String ACCESS_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InBldHJvc3ZhMTJAZ21haWwuY29tIiwicm9sZSI6IlVzZXIiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9zaWQiOiI2MTEwIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy92ZXJzaW9uIjoiMjAwIiwiaHR0cDovL2V4YW1wbGUub3JnL2NsYWltcy9saW1pdCI6Ijk5OTk5OTk5OSIsImh0dHA6Ly9leGFtcGxlLm9yZy9jbGFpbXMvbWVtYmVyc2hpcCI6IlByZW1pdW0iLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL2xhbmd1YWdlIjoiZW4tZ2IiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL2V4cGlyYXRpb24iOiIyMDk5LTEyLTMxIiwiaHR0cDovL2V4YW1wbGUub3JnL2NsYWltcy9tZW1iZXJzaGlwc3RhcnQiOiIyMDE5LTExLTIzIiwiaXNzIjoiaHR0cHM6Ly9zYW5kYm94LWF1dGhzZXJ2aWNlLnByaWFpZC5jaCIsImF1ZCI6Imh0dHBzOi8vaGVhbHRoc2VydmljZS5wcmlhaWQuY2giLCJleHAiOjE1NzQ3MjU2MjMsIm5iZiI6MTU3NDcxODQyM30.KlJYhDU6-fH1beFiopccZmZ20ydHLDFRVtZDMK3rA1k";
+    private String ACCESS_TOKEN = "";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -171,8 +173,16 @@ public class SymptomsActivity extends AppCompatActivity {
                 try {
                     okhttp3.Response response = client.newCall(request).execute();
 
-                    Log.d("RESPONSE1111111111111111",response.body().string());
+                    //Log.d("RESPONSE1111111111111111",response.body().string());
+                    String jsonData = response.body().string();
+                    JSONObject Jobject = new JSONObject(jsonData);
+                    ACCESS_TOKEN = Jobject.getString("Token");
+
+
+
                 } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (JSONException e) {
                     e.printStackTrace();
                 }
 
@@ -196,7 +206,7 @@ public class SymptomsActivity extends AppCompatActivity {
         }*/
 
         /** Call the method with parameter in the interface to get the symptom data*/
-        Call<ArrayList<Symptom>> call = service.getSymptomData(token , "en-gb" ,"json");
+        Call<ArrayList<Symptom>> call = service.getSymptomData(ACCESS_TOKEN , "en-gb" ,"json");
 
         Log.wtf("URL Called", call.request().url() + "");
 
@@ -235,6 +245,7 @@ public class SymptomsActivity extends AppCompatActivity {
                     Intent diagnosisIntent = new Intent(SymptomsActivity.this, DiagnosisActivity.class);
 
                     diagnosisIntent.putStringArrayListExtra("ids",symptomsIds);
+                    diagnosisIntent.putExtra("token",ACCESS_TOKEN);
                     startActivity(diagnosisIntent);
 
                    // Toast.makeText(SymptomsActivity.this,String.valueOf(symptomsIds.size()),Toast.LENGTH_SHORT).show();
@@ -248,63 +259,7 @@ public class SymptomsActivity extends AppCompatActivity {
             }
         });
 
-
-
     }
-
-   /* private String LoadToken(final String userName, final String passWord , final String url) throws Exception {
-
-        SecretKeySpec keySpec = new SecretKeySpec(
-                passWord.getBytes(),
-                "HmacMD5");
-
-        String computedHashString = "";
-        try {
-            Mac mac = Mac.getInstance("HmacMD5");
-            mac.init(keySpec);
-            byte[] result = mac.doFinal(url.getBytes());
-
-            // BASE64Encoder encoder = new BASE64Encoder();
-            computedHashString = Base64.getEncoder().encodeToString(result);
-
-        } catch (NoSuchAlgorithmException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-            throw new Exception("Can not create token (NoSuchAlgorithmException)");
-        } catch (InvalidKeyException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-            throw new Exception("Can not create token (InvalidKeyException)");
-        }
-
-
-        try {
-            httpPost = new HttpPost(url);
-            httpPost.setHeader("Authorization", "Bearer " + userName + ":" + computedHashString);
-            HttpResponse response = httpclient.execute(httpPost);
-
-            if(response.getStatusLine().getStatusCode() != HttpStatus.SC_OK){
-               Log.d("Response with Status","response error");
-            }
-
-            token = response.getEntity().getContent().toString();
-
-        }
-        catch (ClientProtocolException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-            throw new Exception("Can not create token (ClientProtocolException)");
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-            throw new Exception("Can not create token (IOException)");
-        }
-
-
-        return token;
-
-
-    }*/
 
     private void generateSymptomList(ArrayList<Symptom> symptomArrayList) {
 
