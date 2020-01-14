@@ -19,7 +19,7 @@ import com.example.ambulanceconsulting.R;
 
 public class ContactActivity extends AppCompatActivity {
 
-    private Button callAmbulance ,callNEambulance , callEuropean,callBloodDonation,callPoisonCenter,callOnDutyHospitals;
+    private Button   callEuropean,callBloodDonation,callPoisonCenter,callOnDutyHospitals;
 
     private static final int REQUEST_CALL = 1;
     private static String contactNumbers [] = new String[] {"166","210691300", "14944", "2102410000", "2107793777","1434"};
@@ -31,18 +31,7 @@ public class ContactActivity extends AppCompatActivity {
         InitializeFields();
 
 
-        callAmbulance.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                makePhoneCall(0);
-            }
-        });
-        callNEambulance.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                makePhoneCall(1);
-            }
-        });
+
         callEuropean.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -71,8 +60,7 @@ public class ContactActivity extends AppCompatActivity {
 
     private void InitializeFields() {
 
-        callAmbulance = (Button)findViewById(R.id.call_Ambulance);
-        callNEambulance = (Button) findViewById(R.id.call_non_e_Ambulance);
+
         callEuropean=(Button) findViewById(R.id.europeanEmergency);
         callBloodDonation = (Button) findViewById(R.id.bloodDonation);
         callPoisonCenter = (Button) findViewById(R.id.poison_center);
