@@ -30,7 +30,15 @@
 
         <activity
             android:name=".activities.MapsActivity"
-            android:label="@string/title_activity_maps"></activity>
+            android:label="@string/title_activity_maps">
+
+            <intent-filter>
+
+                <action android:name="com.pe21.notification"></action>
+                <category android:name="android.intent.category.DEFAULT"></category>
+            </intent-filter>
+
+        </activity>
         <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

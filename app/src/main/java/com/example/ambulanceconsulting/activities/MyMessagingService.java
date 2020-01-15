@@ -1,5 +1,7 @@
 package com.example.ambulanceconsulting.activities;
 
+import android.content.Intent;
+
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
@@ -12,11 +14,13 @@ public class MyMessagingService extends FirebaseMessagingService {
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
         super.onMessageReceived(remoteMessage);
-        showNotification(remoteMessage.getNotification().getTitle(),remoteMessage.getNotification().getBody());
+        showNotification(remoteMessage.getNotification().getTitle(),remoteMessage.getNotification().getBody() , remoteMessage.getNotification().getClickAction());
 
     }
 
-    private void showNotification(String title, String body) {
+    private void showNotification(String title, String body , String clickAction) {
+
+        Intent notiifyIntent = new Intent(clickAction);
 
         NotificationCompat.Builder builders = new NotificationCompat.Builder(this,"MyNotifications")
                 .setContentTitle(title)
